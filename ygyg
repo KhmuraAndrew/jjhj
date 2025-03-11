@@ -1,0 +1,111 @@
+# import random
+#
+#
+# question={
+#     "Какая команда в JS отвечает за вывод на экран значений":"alter",
+#     "С пмощью какого тэга можно удолять из словоря зачения":"pop",
+#     "Кто написал песню Nookie":"Limp Bizkit",
+#     "Кто создал Microsoft":"Билл Гейтс",
+#     "Орда или Альянс, кто круче":"Орда"
+# }
+# shuffeld_question=list(question.items())
+# random.shuffle(shuffeld_question)
+# x=0
+# print("Колличество вопросов:",len(shuffeld_question))
+#
+# for i, question_typle in enumerate(shuffeld_question, start=1):
+#     question, answer = question_typle
+#
+#
+#     print("Вопрос№",i,question)
+#     a=input("Ваш ответ:")
+#     if a !=answer:
+#         print("Неправильно")
+#     else:
+#         print("Првильно")
+#         x+=1
+# if x<=2:
+#     print("Ваше колличество баллов:",x ,"\n Плохо")
+# elif 2<x<=4:
+#     print("Ваше колличество баллов:",x ,"\nХорошо")
+# else:
+#     print("Ваше колличество баллов:",x ,"\nОтлично")
+# l=x/len(shuffeld_question)*100
+# print(l,"%")
+#
+#
+# import random
+# from colorama import init, Fore, Style
+#
+# QUEST_GOALS=[
+#     "Поболтать с Рошаном",
+#     "Сделать Рапиру",
+#     "Обворовать Баунти Хантера",
+#     "Подстрич Трэнта",
+#     "Скушать 12 танго разом"
+# ]
+# quest_rewards=[
+#     ("Золото",0),
+#     ("Оружие","Топорик"),
+#     ("Броня","Blade mell"),
+#     ("Зелье","Фласка"),
+#     ("Опыт",0)
+# ]
+# Location=[
+#     "Трон",
+#     'Лёгкая линия',
+#     'Хард лайн',
+#     'Мид',
+#     "Лес"
+# ]
+# NPCS={
+#     "Крипы":{"класс":"Воины","расса":"энты"},
+#     "Рошан":{"класс":"Монстр","расса":"дракон"},
+#     "Нейтралы":{"класс":"Воины","расса":"Рыб"},
+#     "Торгавец":{"класс":"Торговец","расса":"Человек"},
+# }
+# def generation_quest():
+#     goal=random.choice(QUEST_GOALS)
+#     reward_type,reward_value=random.choice(quest_rewards)
+#     location=random.choice(Location)
+#     npc_name=random.choice(list(NPCS.keys()))
+#     npc_detils=NPCS[npc_name]
+#     if reward_type=="Опыт":
+#         reward_value=random.randint(100,500)
+#     elif reward_type=="Золото":
+#         reward_value=random.randint(50,200)
+#
+#     quest= (
+#         goal,
+#         (reward_type,reward_value),
+#         location,
+#         (npc_name,npc_detils["класс"],npc_detils["расса"])
+#
+#
+#
+#
+#     )
+#     return quest
+# def generate_unique_quest(count):
+#     unique_quests=set()
+#
+#     while len(unique_quests)<count:
+#         quest=generation_quest()
+#         unique_quests.add(quest)
+#     return unique_quests
+# def print_questions(quests):
+#     print(Fore.GREEN+Style.BRIGHT+ '====Сгенерированные квесты====')
+#     for i,quest in enumerate(quests, start=1):
+#         goal,reward,location,npc=quest
+#
+#         reward_type,reward_value=reward
+#         npc_name,npc_class,npc_race=npc
+#         print(Fore.RED+f'Квест№{i}')
+#         print(Fore.GREEN+f'Цель:{goal}')
+#         print(Fore.GREEN + f'Награда:{reward_type}({reward_value})')
+#         print(Fore.GREEN + f'Локация:{location}')
+#         print(Fore.GREEN + f'NPC:{npc_name}({npc_class},{npc_race})')
+#
+# quest_cont=int(input("Сколько хотите квестов?"))
+# quests=generate_unique_quest(quest_cont)
+# print_questions(quests)
